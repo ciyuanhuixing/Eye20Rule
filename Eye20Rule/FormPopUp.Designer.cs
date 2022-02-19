@@ -40,9 +40,9 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(110, 31);
+            this.label1.Size = new System.Drawing.Size(338, 31);
             this.label1.TabIndex = 0;
-            this.label1.Text = "提前关闭";
+            this.label1.Text = "按Esc键或点此可提前关闭遮罩";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // labelTime

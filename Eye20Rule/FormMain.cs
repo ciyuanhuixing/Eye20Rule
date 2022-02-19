@@ -19,16 +19,15 @@ namespace Eye20Rule
             InitializeComponent();
             timer = new System.Timers.Timer(1000);
             timer.Elapsed += Timer_Elapsed;
-            timer.Enabled = true;
             this.Icon = Properties.Resources.logo;
             notifyIcon1.Icon = Properties.Resources.logo;
-            label1.Image = Properties.Resources.logo.ToBitmap();
+            pictureBox1.BackgroundImage = Properties.Resources.logo.ToBitmap();
         }
 
         private void FormMain_Load(object sender, EventArgs e)
         {
             Timer_Elapsed(null, null);
-            timer.Start();
+            timer.Enabled = true;
         }
 
         private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
@@ -39,7 +38,7 @@ namespace Eye20Rule
 
                 if (minute >= 20)
                 {
-                    timer.Stop();
+                    timer.Enabled = false;
                     Form formP = new FormPopUp();
                     formP.FormClosed += FormP_FormClosed;
                     formP.Show();
@@ -58,7 +57,7 @@ namespace Eye20Rule
         {
             second = 0;
             minute = 0;
-            timer.Start();
+            timer.Enabled = true;
         }
 
         private void notifyIcon1_MouseClick(object sender, MouseEventArgs e)

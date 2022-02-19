@@ -18,12 +18,11 @@ namespace Eye20Rule
             InitializeComponent();
             timer = new System.Timers.Timer(1000);
             timer.Elapsed += Timer_Elapsed;
-            timer.Enabled = true;
         }
 
         private void FormPopUp_Load(object sender, EventArgs e)
         {
-            timer.Start();
+            timer.Enabled = true;
         }
 
         private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
@@ -34,7 +33,7 @@ namespace Eye20Rule
                 if (num <= 0)
                 {
                     label1.Visible = false;
-                    labelTime.Text = "关闭";
+                    labelTime.Text = "请按Esc键或点任意处关闭此遮罩";
                 }
                 num--;
             }));
