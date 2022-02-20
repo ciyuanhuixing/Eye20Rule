@@ -68,8 +68,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
             this.Name = "FormPopUp";
-            this.Opacity = 0.9D;
-            this.Text = "FormPopUp";
+            this.Opacity = 0.8D;
             this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormPopUp_FormClosing);
