@@ -33,13 +33,13 @@
             // 
             // labelTime
             // 
-            this.labelTime.BackColor = System.Drawing.SystemColors.ControlText;
-            this.labelTime.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.labelTime.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelTime.ForeColor = System.Drawing.Color.Black;
-            this.labelTime.Location = new System.Drawing.Point(0, 399);
+            this.labelTime.BackColor = System.Drawing.Color.Transparent;
+            this.labelTime.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelTime.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelTime.ForeColor = System.Drawing.Color.White;
+            this.labelTime.Location = new System.Drawing.Point(0, 0);
             this.labelTime.Name = "labelTime";
-            this.labelTime.Size = new System.Drawing.Size(800, 51);
+            this.labelTime.Size = new System.Drawing.Size(1123, 60);
             this.labelTime.TabIndex = 1;
             this.labelTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelTime.Click += new System.EventHandler(this.labelTime_Click);
@@ -48,17 +48,19 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.Black;
+            this.ClientSize = new System.Drawing.Size(1123, 60);
             this.Controls.Add(this.labelTime);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
             this.Name = "FormPopUp";
-            this.Opacity = 0D;
+            this.Opacity = 0.8D;
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.TopMost = true;
             this.TransparencyKey = System.Drawing.SystemColors.Control;
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormPopUp_FormClosing);
+            this.Load += new System.EventHandler(this.FormPopUp_Load);
             this.ResumeLayout(false);
 
         }

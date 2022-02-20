@@ -3,21 +3,20 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace Eye20Rule
 {
     public partial class FormMain : Form
     {
-        private System.Timers.Timer timer;
+        private System.Timers.Timer timer = new System.Timers.Timer(1000);
         private int second;
         private int minute;
-        FormPopUp formP = new FormPopUp();
 
         public FormMain()
         {
             InitializeComponent();
-            timer = new System.Timers.Timer(1000);
             timer.Elapsed += Timer_Elapsed;
             this.Icon = Properties.Resources.logo;
             notifyIcon1.Icon = Properties.Resources.logo;
@@ -33,20 +32,8 @@ namespace Eye20Rule
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            formP.FormClosing += FormP_FormClosing;
-            formP.Show();
             CheckAutoRun();
             Timer_Elapsed(null, null);
-            timer.Enabled = true;
-        }
-
-        private void FormP_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            e.Cancel= true;
-            formP.StopTimer();
-
-            second = 0;
-            minute = 0;
             timer.Enabled = true;
         }
 
@@ -54,12 +41,17 @@ namespace Eye20Rule
         {
             this.Invoke(new MethodInvoker(() =>
             {
-                labelTime.Text = minute.ToString().PadLeft(2, '0') + ":" + second.ToString().PadLeft(2, '0');
+                if (Visible)
+                {
+                    labelTime.Text = minute.ToString().PadLeft(2, '0') + ":" + second.ToString().PadLeft(2, '0');
+                }
 
                 if (minute >= 20)
                 {
                     timer.Enabled = false;
-                    formP.StartTimer();
+                    FormPopUp formP = new FormPopUp();
+                    formP.FormClosed += FormP_FormClosed;
+                    formP.Show();
                 }
             }));
 
@@ -69,6 +61,13 @@ namespace Eye20Rule
                 second = 0;
                 minute++;
             }
+        }
+
+        private void FormP_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            second = 0;
+            minute = 0;
+            timer.Enabled = true;
         }
 
         private void notifyIcon1_MouseClick(object sender, MouseEventArgs e)
