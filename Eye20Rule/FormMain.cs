@@ -25,7 +25,8 @@ namespace Eye20Rule
             string[] strArgs = Environment.GetCommandLineArgs();
             if (strArgs.Length >= 2 && strArgs[1] == "-silent")
             {
-                Visible = false;
+                Opacity = 0;
+                ShowInTaskbar = false;
             }
         }
 
@@ -272,6 +273,15 @@ namespace Eye20Rule
             if (shortcutPaths.Count < 1)
             {
                 CreateShortcut(desktopPath, quickName, appPath, "软件描述");
+            }
+        }
+
+        private void FormMain_Shown(object sender, EventArgs e)
+        {
+            if (Opacity == 0)
+            {
+                Visible = false;
+                Opacity = 100;
             }
         }
     }
