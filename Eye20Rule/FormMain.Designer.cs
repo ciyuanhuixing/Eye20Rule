@@ -35,6 +35,7 @@
             this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.labelTime = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -53,19 +54,19 @@
             this.menuAutoRun,
             this.退出ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(241, 97);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 64);
             // 
             // menuAutoRun
             // 
             this.menuAutoRun.Name = "menuAutoRun";
-            this.menuAutoRun.Size = new System.Drawing.Size(240, 30);
+            this.menuAutoRun.Size = new System.Drawing.Size(152, 30);
             this.menuAutoRun.Text = "开机启动";
             this.menuAutoRun.Click += new System.EventHandler(this.开机启动ToolStripMenuItem_Click);
             // 
             // 退出ToolStripMenuItem
             // 
             this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(240, 30);
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(152, 30);
             this.退出ToolStripMenuItem.Text = "退出";
             this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
             // 
@@ -74,9 +75,9 @@
             this.labelTime.BackColor = System.Drawing.Color.Transparent;
             this.labelTime.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelTime.Font = new System.Drawing.Font("微软雅黑", 42F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelTime.Location = new System.Drawing.Point(0, 0);
+            this.labelTime.Location = new System.Drawing.Point(0, 44);
             this.labelTime.Name = "labelTime";
-            this.labelTime.Size = new System.Drawing.Size(769, 354);
+            this.labelTime.Size = new System.Drawing.Size(769, 310);
             this.labelTime.TabIndex = 1;
             this.labelTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -89,6 +90,18 @@
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.ForeColor = System.Drawing.Color.Gray;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(769, 44);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "每次计时到20分钟后会弹出提醒";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -97,12 +110,13 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(769, 450);
             this.Controls.Add(this.labelTime);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "20-20-20护眼法则之定时提醒程序（每次计时到20分钟后会弹出提醒）";
+            this.Text = "20-20-20护眼法则之定时提醒程序";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormMain_KeyDown);
@@ -120,6 +134,7 @@
         private System.Windows.Forms.Label labelTime;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripMenuItem menuAutoRun;
+        private System.Windows.Forms.Label label1;
     }
 }
 
