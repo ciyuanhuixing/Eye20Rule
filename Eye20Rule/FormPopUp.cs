@@ -32,7 +32,7 @@ namespace Eye20Rule
         {
             InitializeComponent();
             timer.Elapsed += Timer_Elapsed;
-            Width = Screen.GetWorkingArea(this).Width;
+            Width = Screen.GetBounds(this).Width;
         }
 
         private void FormPopUp_Load(object sender, EventArgs e)
@@ -52,7 +52,7 @@ namespace Eye20Rule
                 else
                 {
                     timer.Enabled = false;
-                    labelTime.Text = "已过了20秒，您休息结束时请点此重新开始20分钟的计时。";
+                    labelTime.Text = "20秒已过，若已休息完毕，请点此重新开始20分钟的计时。";
                 }
                 num--;
             }));
