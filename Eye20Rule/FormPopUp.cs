@@ -50,7 +50,7 @@ namespace Eye20Rule
                 {
                     timer.Enabled = false;
                     timer.Stop();
-                    btnClose.Text = "休息完毕";
+                    Close();
                 }
                 num--;
             }));
@@ -62,16 +62,10 @@ namespace Eye20Rule
             e.Cancel = true;
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
         private void FormPopUp_VisibleChanged(object sender, EventArgs e)
         {
             if (Visible)
             {
-                btnClose.Text = "跳过本次休息";
                 num = 20;
                 Timer_Elapsed(null, null);
                 timer.Enabled = true;
