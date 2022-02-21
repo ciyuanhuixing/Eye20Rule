@@ -44,7 +44,7 @@ namespace Eye20Rule
             {
                 if (num >= 0)
                 {
-                    labelTime.Text = "您已持续用眼20分钟，休息一会吧！请向至少6米远处眺望至少20秒。\r\n\r\n倒计时：" + num;
+                    labelTime.Text = "您已持续用眼20分钟，休息一会吧！请向至少6米远处的物体眺望至少20秒，全神贯注凝视远处物体并辨认其轮廓。\r\n\r\n倒计时：" + num;
                 }
                 else
                 {
