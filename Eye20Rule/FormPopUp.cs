@@ -32,42 +32,57 @@ namespace Eye20Rule
         {
             InitializeComponent();
             timer.Elapsed += Timer_Elapsed;
-            Width = Screen.GetBounds(this).Width;
-            //BackColor = Color.FromArgb(179, 235, 181);
-        }
-
-        private void FormPopUp_Load(object sender, EventArgs e)
-        {
-            Timer_Elapsed(null, null);
-            timer.Enabled = true;
+            Rectangle bounds = Screen.GetBounds(this);
+            Location = new Point(bounds.Width - Width, bounds.Height - Height);
+            labelLogo.Image = Properties.Resources.logo.ToBitmap();
         }
 
         private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
             this.Invoke(new MethodInvoker(() =>
             {
-                if (num > 0)
+                if (num >= 0)
                 {
-                    labelTime.Text = "您已持续用眼20分钟，休息一会吧！请向至少6米远处眺望至少20秒（点此可跳过本次休息）。20秒倒计时：" + num;
+                    labelTime.Text = "您已持续用眼20分钟，休息一会吧！请向至少6米远处眺望至少20秒。\r\n\r\n倒计时：" + num;
                 }
                 else
                 {
                     timer.Enabled = false;
-                    BackColor = Color.Black;
-                    labelTime.Text = "20秒已过，若已休息完毕，请点此重新开始20分钟的计时。";
+                    timer.Stop();
+                    btnClose.Text = "休息完毕";
                 }
                 num--;
             }));
         }
 
-        private void labelTime_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void FormPopUp_FormClosing(object sender, FormClosingEventArgs e)
         {
-            timer.Dispose();
+            Visible = false;
+            e.Cancel = true;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void FormPopUp_VisibleChanged(object sender, EventArgs e)
+        {
+            if (Visible)
+            {
+                btnClose.Text = "跳过本次休息";
+                num = 20;
+                Timer_Elapsed(null, null);
+                timer.Enabled = true;
+                timer.Start();
+                ShowInTaskbar = true;
+            }
+            else
+            {
+                timer.Enabled = false;
+                timer.Stop();
+                ShowInTaskbar = false;
+            }
         }
     }
 }

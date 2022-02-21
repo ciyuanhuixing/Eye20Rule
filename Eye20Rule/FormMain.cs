@@ -13,14 +13,17 @@ namespace Eye20Rule
         private System.Timers.Timer timer = new System.Timers.Timer(1000);
         private int second;
         private int minute;
+        FormPopUp formP;
 
         public FormMain()
         {
             InitializeComponent();
-            timer.Elapsed += Timer_Elapsed;
+
             this.Icon = Properties.Resources.logo;
             notifyIcon1.Icon = Properties.Resources.logo;
             pictureBox1.BackgroundImage = Properties.Resources.logo.ToBitmap();
+
+            timer.Elapsed += Timer_Elapsed;
 
             string[] strArgs = Environment.GetCommandLineArgs();
             if (strArgs.Length >= 2 && strArgs[1] == "-silent")
@@ -33,6 +36,9 @@ namespace Eye20Rule
         private void FormMain_Load(object sender, EventArgs e)
         {
             CheckAutoRun();
+
+            formP = new FormPopUp();
+            formP.FormClosing += FormP_FormClosing;
             Timer_Elapsed(null, null);
             timer.Enabled = true;
         }
@@ -49,8 +55,6 @@ namespace Eye20Rule
                 if (minute >= 20)
                 {
                     timer.Enabled = false;
-                    FormPopUp formP = new FormPopUp();
-                    formP.FormClosed += FormP_FormClosed;
                     formP.Show();
                 }
             }));
@@ -63,7 +67,7 @@ namespace Eye20Rule
             }
         }
 
-        private void FormP_FormClosed(object sender, FormClosedEventArgs e)
+        private void FormP_FormClosing(object sender, FormClosingEventArgs e)
         {
             second = 0;
             minute = 0;
