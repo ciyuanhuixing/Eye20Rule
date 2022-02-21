@@ -35,6 +35,7 @@ namespace Eye20Rule
             Rectangle bounds = Screen.GetBounds(this);
             Location = new Point(bounds.Width - Width, bounds.Height - Height);
             labelLogo.Image = Properties.Resources.logo.ToBitmap();
+            this.Icon = Properties.Resources.logo;
         }
 
         private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
@@ -82,6 +83,14 @@ namespace Eye20Rule
                 timer.Enabled = false;
                 timer.Stop();
                 ShowInTaskbar = false;
+            }
+        }
+
+        private void FormPopUp_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                Close();
             }
         }
     }

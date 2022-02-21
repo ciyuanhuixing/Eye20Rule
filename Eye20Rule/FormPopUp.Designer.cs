@@ -92,9 +92,11 @@
             this.Name = "FormPopUp";
             this.Opacity = 0.8D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.Text = "休息提醒";
             this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormPopUp_FormClosing);
             this.VisibleChanged += new System.EventHandler(this.FormPopUp_VisibleChanged);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormPopUp_KeyDown);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
