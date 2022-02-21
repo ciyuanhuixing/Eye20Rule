@@ -40,7 +40,7 @@
             this.labelTime.ForeColor = System.Drawing.Color.Black;
             this.labelTime.Location = new System.Drawing.Point(117, 0);
             this.labelTime.Name = "labelTime";
-            this.labelTime.Size = new System.Drawing.Size(383, 142);
+            this.labelTime.Size = new System.Drawing.Size(383, 194);
             this.labelTime.TabIndex = 1;
             // 
             // labelLogo
@@ -49,7 +49,7 @@
             this.labelLogo.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.labelLogo.Location = new System.Drawing.Point(0, 0);
             this.labelLogo.Name = "labelLogo";
-            this.labelLogo.Size = new System.Drawing.Size(117, 142);
+            this.labelLogo.Size = new System.Drawing.Size(117, 194);
             this.labelLogo.TabIndex = 2;
             // 
             // FormPopUp
@@ -57,7 +57,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(500, 142);
+            this.ClientSize = new System.Drawing.Size(500, 194);
             this.Controls.Add(this.labelTime);
             this.Controls.Add(this.labelLogo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
