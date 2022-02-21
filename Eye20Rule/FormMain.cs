@@ -288,7 +288,7 @@ namespace Eye20Rule
             if (Opacity == 0)
             {
                 Visible = false;
-                Opacity = 100;
+                Opacity = 1;
             }
         }
     }
