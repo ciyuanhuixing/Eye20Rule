@@ -33,6 +33,7 @@ namespace Eye20Rule
             InitializeComponent();
             timer.Elapsed += Timer_Elapsed;
             Width = Screen.GetBounds(this).Width;
+            //BackColor = Color.FromArgb(179, 235, 181);
         }
 
         private void FormPopUp_Load(object sender, EventArgs e)
@@ -52,6 +53,7 @@ namespace Eye20Rule
                 else
                 {
                     timer.Enabled = false;
+                    BackColor = Color.Black;
                     labelTime.Text = "20秒已过，若已休息完毕，请点此重新开始20分钟的计时。";
                 }
                 num--;
