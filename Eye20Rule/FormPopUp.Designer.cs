@@ -63,7 +63,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.KeyPreview = true;
             this.Name = "FormPopUp";
-            this.Opacity = 0.6D;
+            this.Opacity = 0.7D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "休息提醒";
             this.TopMost = true;
