@@ -11,7 +11,7 @@ namespace Eye20Rule
 {
     public partial class FormPopUp : Form
     {
-        private int num = 20;
+        private int num;
         private System.Timers.Timer timer = new System.Timers.Timer(1000);
 
         /// <summary>
@@ -40,11 +40,17 @@ namespace Eye20Rule
 
         private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
+            const string tip = "您已持续用眼20分钟，休息一会吧！请向至少6米远处的物体眺望至少20秒，全神贯注凝视远处物体并辨认其轮廓。";
+
             this.Invoke(new MethodInvoker(() =>
             {
-                if (num >= 0)
+                if (num > 20)
                 {
-                    labelTime.Text = "您已持续用眼20分钟，休息一会吧！请向至少6米远处的物体眺望至少20秒，全神贯注凝视远处物体并辨认其轮廓。\r\n\r\n倒计时：" + num;
+                    labelTime.Text = tip;
+                }
+                else if (num >= 0)
+                {
+                    labelTime.Text = tip + "\r\n\r\n倒计时：" + num;
                 }
                 else
                 {
@@ -66,7 +72,7 @@ namespace Eye20Rule
         {
             if (Visible)
             {
-                num = 20;
+                num = 30;
                 Timer_Elapsed(null, null);
                 timer.Enabled = true;
                 timer.Start();
