@@ -72,7 +72,7 @@ namespace Eye20Rule
         {
             if (Visible)
             {
-                num = 30;
+                num = 40;
                 Timer_Elapsed(null, null);
                 timer.Enabled = true;
                 timer.Start();
