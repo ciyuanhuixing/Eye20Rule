@@ -43,7 +43,7 @@
             // notifyIcon1
             // 
             this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1;
-            this.notifyIcon1.Text = "20-20-20护眼法则之定时提醒程序（每次计时到20分钟后会弹出提醒）";
+            this.notifyIcon1.Text = "遵循20-20-20护眼法则的定时提醒程序（每次计时到20分钟后会弹出提醒）";
             this.notifyIcon1.Visible = true;
             this.notifyIcon1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseClick);
             // 
@@ -117,7 +117,7 @@
             this.MinimizeBox = false;
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "20-20-20护眼法则之定时提醒程序";
+            this.Text = "遵循20-20-20护眼法则的定时提醒程序";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.Shown += new System.EventHandler(this.FormMain_Shown);

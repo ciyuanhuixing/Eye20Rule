@@ -7,7 +7,7 @@
     <ProjectGuid>{166D65EE-6D22-4DA7-B5FD-9687218D083D}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Eye20Rule</RootNamespace>
-    <AssemblyName>20-20-20护眼法则之定时提醒程序</AssemblyName>
+    <AssemblyName>遵循20-20-20护眼法则的定时提醒程序</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
