@@ -7,7 +7,7 @@
     <ProjectGuid>{166D65EE-6D22-4DA7-B5FD-9687218D083D}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Eye20Rule</RootNamespace>
-    <AssemblyName>遵循20-20-20护眼法则的定时提醒程序</AssemblyName>
+    <AssemblyName>护眼助手</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -51,6 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormDark.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDark.Designer.cs">
+      <DependentUpon>FormDark.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +71,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormDark.resx">
+      <DependentUpon>FormDark.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
       <SubType>Designer</SubType>

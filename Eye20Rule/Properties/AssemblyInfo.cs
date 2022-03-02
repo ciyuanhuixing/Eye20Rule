@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("遵循20-20-20护眼法则的定时提醒程序")]
+[assembly: AssemblyTitle("护眼助手")]
 [assembly: AssemblyDescription("每次计时到20分钟后会弹出提醒")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("遵循20-20-20护眼法则的定时提醒程序")]
+[assembly: AssemblyProduct("护眼助手")]
 [assembly: AssemblyCopyright("Copyright ©  2022 次元彗星（ciyuanhuixing.com）")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

@@ -14,6 +14,8 @@ namespace Eye20Rule
         private int second;
         private int minute;
         FormPopUp formP;
+        FormDark formDark;
+        const string configPath = "Eye20Rule.config";
 
         public FormMain()
         {
@@ -41,6 +43,27 @@ namespace Eye20Rule
             formP.FormClosing += FormP_FormClosing;
             Timer_Elapsed(null, null);
             timer.Enabled = true;
+
+            formDark = new FormDark();
+
+            if (System.IO.File.Exists(configPath))
+            {
+                string[] arrConfig = System.IO.File.ReadAllLines(configPath);
+                if (arrConfig.Length > 1)
+                {
+                    int opacityPercent;
+                    if (int.TryParse(arrConfig[1], out opacityPercent))
+                    {
+                        trackBar1.Value = opacityPercent;
+                    }
+
+                    if (arrConfig[0] == "1")
+                    {
+                        checkBoxEnableDark.Checked = true;
+                        checkBoxEnableDark_CheckedChanged(null, null);
+                    }
+                }
+            }
         }
 
         private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
@@ -87,8 +110,11 @@ namespace Eye20Rule
 
         private void 退出ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            timer.Dispose();
+            System.IO.File.WriteAllLines(configPath, new string[] {
+                checkBoxEnableDark.Checked ? "1" : "0", trackBar1.Value.ToString() });
+
             notifyIcon1.Dispose();
+            Close();
             Environment.Exit(0);
         }
 
@@ -289,6 +315,25 @@ namespace Eye20Rule
             {
                 Visible = false;
                 Opacity = 1;
+            }
+        }
+
+        private void trackBar1_ValueChanged(object sender, EventArgs e)
+        {
+            formDark.Opacity = (double)trackBar1.Value / 100;
+        }
+
+        private void checkBoxEnableDark_CheckedChanged(object sender, EventArgs e)
+        {
+            trackBar1.Enabled = checkBoxEnableDark.Checked;
+            if (checkBoxEnableDark.Checked)
+            {
+                formDark.Show();
+                trackBar1_ValueChanged(null, null);
+            }
+            else
+            {
+                formDark.Hide();
             }
         }
     }
