@@ -59,5 +59,14 @@ namespace Eye20Rule
             SetPenetrate();
             Opacity = 0;
         }
+
+        private void FormDark_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                Visible = false;
+                e.Cancel = true;
+            }
+        }
     }
 }

@@ -32,7 +32,7 @@
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuAutoRun = new System.Windows.Forms.ToolStripMenuItem();
-            this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.labelTime = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -60,23 +60,23 @@
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuAutoRun,
-            this.退出ToolStripMenuItem});
+            this.menuExit});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 64);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(241, 97);
             // 
             // menuAutoRun
             // 
             this.menuAutoRun.Name = "menuAutoRun";
-            this.menuAutoRun.Size = new System.Drawing.Size(152, 30);
+            this.menuAutoRun.Size = new System.Drawing.Size(240, 30);
             this.menuAutoRun.Text = "开机启动";
             this.menuAutoRun.Click += new System.EventHandler(this.开机启动ToolStripMenuItem_Click);
             // 
-            // 退出ToolStripMenuItem
+            // menuExit
             // 
-            this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(152, 30);
-            this.退出ToolStripMenuItem.Text = "退出";
-            this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
+            this.menuExit.Name = "menuExit";
+            this.menuExit.Size = new System.Drawing.Size(240, 30);
+            this.menuExit.Text = "退出";
+            this.menuExit.Click += new System.EventHandler(this.menuExit_Click);
             // 
             // labelTime
             // 
@@ -200,7 +200,7 @@
 
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem 退出ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuExit;
         private System.Windows.Forms.Label labelTime;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripMenuItem menuAutoRun;

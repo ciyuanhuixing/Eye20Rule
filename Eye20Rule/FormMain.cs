@@ -40,12 +40,11 @@ namespace Eye20Rule
             CheckAutoRun();
 
             formP = new FormPopUp();
-            formP.FormClosing += FormP_FormClosing;
+            formP.VisibleChanged += FormP_VisibleChanged;
             Timer_Elapsed(null, null);
             timer.Enabled = true;
 
             formDark = new FormDark();
-            formDark.FormClosing += FormDark_FormClosing;
 
             if (System.IO.File.Exists(configPath))
             {
@@ -67,9 +66,14 @@ namespace Eye20Rule
             }
         }
 
-        private void FormDark_FormClosing(object sender, FormClosingEventArgs e)
+        private void FormP_VisibleChanged(object sender, EventArgs e)
         {
-            e.Cancel = true;
+            if (!formP.Visible)
+            {
+                second = 0;
+                minute = 0;
+                timer.Enabled = true;
+            }
         }
 
         private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
@@ -96,13 +100,6 @@ namespace Eye20Rule
             }
         }
 
-        private void FormP_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            second = 0;
-            minute = 0;
-            timer.Enabled = true;
-        }
-
         private void notifyIcon1_MouseClick(object sender, MouseEventArgs e)
         {
             if (e.Button != MouseButtons.Left)
@@ -114,27 +111,31 @@ namespace Eye20Rule
             this.Activate();
         }
 
-        private void 退出ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void menuExit_Click(object sender, EventArgs e)
         {
             System.IO.File.WriteAllLines(configPath, new string[] {
                 checkBoxEnableDark.Checked ? "1" : "0", trackBar1.Value.ToString() });
 
             notifyIcon1.Dispose();
-            Close();
             Environment.Exit(0);
         }
 
         private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.Visible = false;
-            e.Cancel = true;
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                this.Visible = false;
+                e.Cancel = true;
+                return;
+            }
+            menuExit_Click(null, null);
         }
 
         private void FormMain_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
             {
-                Close();
+                Hide();
             }
         }
 

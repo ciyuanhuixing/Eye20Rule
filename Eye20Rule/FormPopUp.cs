@@ -54,9 +54,7 @@ namespace Eye20Rule
                 }
                 else
                 {
-                    timer.Enabled = false;
-                    timer.Stop();
-                    Close();
+                    Hide();
                 }
                 num--;
             }));
@@ -64,8 +62,11 @@ namespace Eye20Rule
 
         private void FormPopUp_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Visible = false;
-            e.Cancel = true;
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                Visible = false;
+                e.Cancel = true;
+            }
         }
 
         private void FormPopUp_VisibleChanged(object sender, EventArgs e)
@@ -90,7 +91,7 @@ namespace Eye20Rule
         {
             if (e.KeyCode == Keys.Escape)
             {
-                Close();
+                Hide();
             }
         }
     }

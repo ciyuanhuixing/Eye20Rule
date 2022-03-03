@@ -43,6 +43,7 @@
             this.Text = "FormDark";
             this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormDark_FormClosing);
             this.Load += new System.EventHandler(this.FormDark_Load);
             this.ResumeLayout(false);
 
