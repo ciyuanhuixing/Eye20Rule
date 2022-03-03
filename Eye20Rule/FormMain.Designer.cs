@@ -37,11 +37,14 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.checkBoxEnableDark = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,7 +85,7 @@
             this.labelTime.Font = new System.Drawing.Font("微软雅黑", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.labelTime.Location = new System.Drawing.Point(0, 44);
             this.labelTime.Name = "labelTime";
-            this.labelTime.Size = new System.Drawing.Size(938, 190);
+            this.labelTime.Size = new System.Drawing.Size(938, 216);
             this.labelTime.TabIndex = 1;
             this.labelTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -90,7 +93,7 @@
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 388);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 639);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(938, 96);
             this.pictureBox1.TabIndex = 3;
@@ -112,34 +115,56 @@
             // 
             this.trackBar1.AutoSize = false;
             this.trackBar1.Enabled = false;
-            this.trackBar1.Location = new System.Drawing.Point(70, 103);
+            this.trackBar1.Location = new System.Drawing.Point(181, 47);
             this.trackBar1.Maximum = 80;
             this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(811, 48);
+            this.trackBar1.Size = new System.Drawing.Size(667, 48);
             this.trackBar1.TabIndex = 5;
             this.trackBar1.ValueChanged += new System.EventHandler(this.trackBar1_ValueChanged);
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.checkBoxEnableDark);
-            this.panel1.Controls.Add(this.trackBar1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 234);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(938, 154);
-            this.panel1.TabIndex = 6;
-            // 
             // checkBoxEnableDark
             // 
+            this.checkBoxEnableDark.AutoSize = true;
             this.checkBoxEnableDark.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.checkBoxEnableDark.Location = new System.Drawing.Point(70, 6);
+            this.checkBoxEnableDark.Location = new System.Drawing.Point(31, 46);
             this.checkBoxEnableDark.Name = "checkBoxEnableDark";
-            this.checkBoxEnableDark.Size = new System.Drawing.Size(811, 97);
+            this.checkBoxEnableDark.Size = new System.Drawing.Size(144, 28);
             this.checkBoxEnableDark.TabIndex = 6;
-            this.checkBoxEnableDark.Text = "调节屏幕亮度（是软件模拟调节，非硬件调节，专为PWM低频调光显示器设计，这种显示器使用硬件调节方法调节亮度时，亮度越低闪屏越明显，而使用软件模拟调节则不会，因此建" +
-    "议先用硬件调节方法调至最高亮度，再用本软件调至合适的低亮度。）";
+            this.checkBoxEnableDark.Text = "调节屏幕亮度";
             this.checkBoxEnableDark.UseVisualStyleBackColor = true;
             this.checkBoxEnableDark.CheckedChanged += new System.EventHandler(this.checkBoxEnableDark_CheckedChanged);
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.ForeColor = System.Drawing.Color.Gray;
+            this.label2.Location = new System.Drawing.Point(27, 115);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(821, 206);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "此功能为软件模拟调节，建议用于以下情况：\r\n①显示器直接使用硬件调节方式调至最低亮度时仍然过亮；\r\n②显示器调光方式为PWM低频调光。\r\n\r\n注：PWM低频调光显" +
+    "示器使用硬件调节方式调低亮度时，会出现肉眼不可见但容易导致眼疲劳的闪烁（手机相机快门调至最高速度并对准显示器时可看出闪烁），而使用软件模拟调节则不会出现闪烁，因" +
+    "此建议先用硬件调节方式调至最高亮度，再用本软件调至合适的低亮度。";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.trackBar1);
+            this.groupBox1.Controls.Add(this.checkBoxEnableDark);
+            this.groupBox1.Location = new System.Drawing.Point(33, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(871, 327);
+            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 260);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(938, 379);
+            this.panel1.TabIndex = 6;
             // 
             // FormMain
             // 
@@ -147,7 +172,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(938, 484);
+            this.ClientSize = new System.Drawing.Size(938, 735);
             this.Controls.Add(this.labelTime);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
@@ -156,7 +181,7 @@
             this.MinimizeBox = false;
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "护眼助手";
+            this.Text = "护眼助手（by 次元彗星 ciyuanhuixing.com）";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.Shown += new System.EventHandler(this.FormMain_Shown);
@@ -164,6 +189,8 @@
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -179,8 +206,10 @@
         private System.Windows.Forms.ToolStripMenuItem menuAutoRun;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TrackBar trackBar1;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.CheckBox checkBoxEnableDark;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

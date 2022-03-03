@@ -45,6 +45,7 @@ namespace Eye20Rule
             timer.Enabled = true;
 
             formDark = new FormDark();
+            formDark.FormClosing += FormDark_FormClosing;
 
             if (System.IO.File.Exists(configPath))
             {
@@ -64,6 +65,11 @@ namespace Eye20Rule
                     }
                 }
             }
+        }
+
+        private void FormDark_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
         }
 
         private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
